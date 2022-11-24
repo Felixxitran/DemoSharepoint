@@ -24,3 +24,7 @@ D:\code\ASP.NET-LEARNING\Demo_Sharepoint_API\Demo_Sharepoint_API\obj\Debug\net6.
 D:\code\ASP.NET-LEARNING\Demo_Sharepoint_API\Demo_Sharepoint_API\obj\Debug\net6.0\Demo_Sharepoint_API.pdb
 D:\code\ASP.NET-LEARNING\Demo_Sharepoint_API\Demo_Sharepoint_API\obj\Debug\net6.0\Demo_Sharepoint_API.genruntimeconfig.cache
 D:\code\ASP.NET-LEARNING\Demo_Sharepoint_API\Demo_Sharepoint_API\obj\Debug\net6.0\ref\Demo_Sharepoint_API.dll
+D:\code\ASP.NET-LEARNING\Demo_Sharepoint_API\Demo_Sharepoint_API\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\code\ASP.NET-LEARNING\Demo_Sharepoint_API\Demo_Sharepoint_API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\code\ASP.NET-LEARNING\Demo_Sharepoint_API\Demo_Sharepoint_API\bin\Debug\net6.0\RestSharp.dll
+D:\code\ASP.NET-LEARNING\Demo_Sharepoint_API\Demo_Sharepoint_API\obj\Debug\net6.0\Demo_Sharepoint_API.csproj.CopyComplete

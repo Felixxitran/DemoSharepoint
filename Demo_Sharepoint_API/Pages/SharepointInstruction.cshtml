@@ -1,0 +1,39 @@
+﻿@page
+@model Demo_Sharepoint_API.Pages.SharepointInstructionModel
+@{
+}
+
+<h1>This is Sharepoint Instruction on how to connect</h1>
+
+
+
+<h1>Please input the per instruction above</h1> 
+<h1></h1>
+
+<form action="@Url.Action("getAccTok")">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"> Tenant ID</label>
+        <div  class="col-sm-6">
+            <input  type="text" class="form-control" name="clientID" placeholder="Enter Tenant ID..." />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"> Client Secret</label>
+        <div class="col-sm-6">
+            <input   type="text" class="form-control" name="clientSecret" placeholder="Enter Client Secret..." />
+        </div>
+    </div>
+    <div class="row mb-3">
+
+        <label class="col-sm-3 col-form-label">Site Domain</label>
+        <div class="col-sm-6">
+            <input  type="text" class="form-control" name="DomainSite" placeholder="Enter Site Domain..." />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+

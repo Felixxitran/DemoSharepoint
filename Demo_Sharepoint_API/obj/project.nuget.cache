@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "NPrhfYxOxakOjRnvX8tIz5+vDK/w0qghdt/mcHpUnTopqNHZEWddEd3aVfE/BSnnvu8gD5GpL3kgCSA/KL4HSg==",
+  "success": true,
+  "projectFilePath": "D:\\code\\ASP.NET-LEARNING\\Demo_Sharepoint_API\\Demo_Sharepoint_API\\Demo_Sharepoint_API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\khoai\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\khoai\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

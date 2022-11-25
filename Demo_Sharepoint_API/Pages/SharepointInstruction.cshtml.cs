@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Demo_Sharepoint_API.Pages.REST;
+using System.Diagnostics;
 
 namespace Demo_Sharepoint_API.Pages
 {
@@ -10,7 +12,9 @@ namespace Demo_Sharepoint_API.Pages
             tenantInfo.clientID = values["clientID"];
             tenantInfo.clientSecret = values["clientSecret"];
             tenantInfo.DomainSite = values["DomainSite"];
-
+            Debug.WriteLine("get acc tok run");
+            ConstructREST restClient = new ConstructREST();
+            restClient.getAccessToken(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
         }
     }
     public class GetAccessToken

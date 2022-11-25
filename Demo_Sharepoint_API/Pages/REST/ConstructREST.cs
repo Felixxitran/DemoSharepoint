@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using RestSharp;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace Demo_Sharepoint_API.Pages.REST
@@ -32,6 +33,9 @@ namespace Demo_Sharepoint_API.Pages.REST
                 request.AddStringBody(requestBody.ToString(), DataFormat.Json);
                 request.AddParameter(parameters.ToString(), DataFormat.Json);
                 var res = restClient.GetAsync(request).Result;
+                Debug.WriteLine(res);
+                Console.WriteLine(res.ToString());
+                Debug.WriteLine("done accessing token");
                 return "done";
             }
 

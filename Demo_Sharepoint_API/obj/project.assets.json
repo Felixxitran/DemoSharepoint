@@ -138,11 +138,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\code\\ASP.NET-LEARNING\\Demo_Sharepoint_API\\Demo_Sharepoint_API\\Demo_Sharepoint_API.csproj",
+      "projectUniqueName": "D:\\code\\DemoSharepoint\\Demo_Sharepoint_API\\Demo_Sharepoint_API.csproj",
       "projectName": "Demo_Sharepoint_API",
-      "projectPath": "D:\\code\\ASP.NET-LEARNING\\Demo_Sharepoint_API\\Demo_Sharepoint_API\\Demo_Sharepoint_API.csproj",
+      "projectPath": "D:\\code\\DemoSharepoint\\Demo_Sharepoint_API\\Demo_Sharepoint_API.csproj",
       "packagesPath": "C:\\Users\\khoai\\.nuget\\packages\\",
-      "outputPath": "D:\\code\\ASP.NET-LEARNING\\Demo_Sharepoint_API\\Demo_Sharepoint_API\\obj\\",
+      "outputPath": "D:\\code\\DemoSharepoint\\Demo_Sharepoint_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\khoai\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -199,7 +199,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

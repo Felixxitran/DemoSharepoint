@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 
 using System.Linq;
+using System.Xml.Linq;
+
 namespace Demo_Sharepoint_API.Pages.REST
 {
     public class ConstructREST
@@ -29,7 +31,7 @@ namespace Demo_Sharepoint_API.Pages.REST
                 String clientID = tokens[0];
 
                 requestBody.Add("grant_type", "client_credentials");
-                requestBody.Add("resource", "00000003-0000-0ff1-ce00-000000000000/" + DomainSite + clientID);
+                requestBody.Add("resource", "00000003-0000-0ff1-ce00-000000000000/" + DomainSite +"@"+ clientID);
                 requestBody.Add("client_id", client_id);
                 requestBody.Add("client_secret", clientSecret);
 
@@ -37,11 +39,19 @@ namespace Demo_Sharepoint_API.Pages.REST
                 Console.WriteLine(requestBody.ToString());
                 var request = new RestRequest(client_id + "/tokens/OAuth/2/", Method.Get);
                 
-                request.AddJsonBody(requestBody.ToString());
-                Console.WriteLine(request.Parameters.ToString);
-                request.AddParameter(parameters.ToString(), DataFormat.Json);  
+                
+                //request.AddJsonBody(new
+                //{
+                //    grant_type = "client_credentials",
+                //    client_id = client_id,
+                //    client_secret = clientSecret,
+                //    resource= "00000003-0000-0ff1-ce00-000000000000/" + DomainSite + "@" + clientID
+                //}) ;
 
-                //sendingRequest(request, restClient);
+                JArray requestArray = new JArray();
+                requestArray.Add(requestBody);
+                request.AddParameter("application/json", requestArray, ParameterType.RequestBody);
+                Console.WriteLine(request.Parameters);
                 RestResponse response = restClient.Execute(request);
                 var content = response.Content;
                 Console.WriteLine(content);

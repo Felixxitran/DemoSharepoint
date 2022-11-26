@@ -1,26 +1,31 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System.Diagnostics;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
+using System.Linq;
 namespace Demo_Sharepoint_API.Pages.REST
 {
     public class ConstructREST
     {
-        static void Main(String[] args)
-        {
-            var client = new RestClient();
-
-        }
+        
         public String getAccessToken(String client_id, String DomainSite, String clientSecret)
         {
-            String urlAccessToken = "https://accounts.accesscontrol.windows.net/" + client_id + "/tokens/OAuth/2/";
+            String urlAccessToken = "https://accounts.accesscontrol.windows.net/" ;
             using (RestClient restClient = new RestClient(urlAccessToken))
             {
                 var requestBody = new JObject();
                 var parameters = new JObject();
+                //get client string 
+                String[] tokens = { };
+                if (client_id!=null) { 
 
-                String[] tokens = Regex.Split(client_id, "@");
+                    tokens = Regex.Split(client_id, "@");
+                }
+                
                 String clientID = tokens[0];
 
                 requestBody.Add("grant_type", "client_credentials");
@@ -29,16 +34,33 @@ namespace Demo_Sharepoint_API.Pages.REST
                 requestBody.Add("client_secret", clientSecret);
 
                 parameters.Add("grant_type", "client_credentials");
-                var request = new RestRequest();
-                request.AddStringBody(requestBody.ToString(), DataFormat.Json);
-                request.AddParameter(parameters.ToString(), DataFormat.Json);
-                var res = restClient.GetAsync(request).Result;
-                Debug.WriteLine(res);
-                Console.WriteLine(res.ToString());
-                Debug.WriteLine("done accessing token");
+                Console.WriteLine(requestBody.ToString());
+                var request = new RestRequest(client_id + "/tokens/OAuth/2/", Method.Get);
+                
+                request.AddJsonBody(requestBody.ToString());
+                Console.WriteLine(request.Parameters.ToString);
+                request.AddParameter(parameters.ToString(), DataFormat.Json);  
+
+                //sendingRequest(request, restClient);
+                RestResponse response = restClient.Execute(request);
+                var content = response.Content;
+                Console.WriteLine(content);
+                Console.ReadKey(true);
                 return "done";
             }
 
+        }
+        public void sendingRequest (RestRequest request,RestClient restClient) {
+            
+            try
+            {
+                var res = restClient.GetAsync(request).Result;
+                Debug.WriteLine(res);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
         }
         public String getItems(String accessToken, String DomainSite)
         {

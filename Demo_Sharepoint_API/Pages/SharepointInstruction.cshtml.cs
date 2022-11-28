@@ -1,7 +1,6 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Demo_Sharepoint_API.Pages.REST;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Demo_Sharepoint_API.Pages
 {
@@ -15,8 +14,9 @@ namespace Demo_Sharepoint_API.Pages
             tenantInfo.DomainSite = Request.Form["DomainSite"];
             Debug.WriteLine("get acc tok run");
             ConstructREST restClient = new ConstructREST();
-            //Page.Response.Write("<script>console.log('" + "have run into Onget" + "')</script>");
+
             restClient.getAccessToken(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
+            //restClient.getAccessTokenWithHTTP(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
             //return RedirectToPage("Index");
         }
     }

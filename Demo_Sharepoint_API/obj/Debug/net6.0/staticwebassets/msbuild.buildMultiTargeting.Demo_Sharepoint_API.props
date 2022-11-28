@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Demo_Sharepoint_API.props" />
-</Project>

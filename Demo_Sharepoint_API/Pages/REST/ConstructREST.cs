@@ -1,6 +1,4 @@
-﻿
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System.Diagnostics;
@@ -13,49 +11,48 @@ namespace Demo_Sharepoint_API.Pages.REST
         public String getAccessToken(String client_id, String DomainSite, String clientSecret)
         {
             String urlAccessToken = "https://accounts.accesscontrol.windows.net/";
-            using (RestClient restClient = new RestClient(urlAccessToken))
+            var restClient = new RestClient(urlAccessToken);
+            var requestBody = new JObject();
+            var parameters = new JObject();
+            //get client string 
+            String[] tokens = { };
+            if (client_id != null)
             {
-                var requestBody = new JObject();
-                var parameters = new JObject();
-                //get client string 
-                String[] tokens = { };
-                if (client_id != null)
-                {
 
-                    tokens = Regex.Split(client_id, "@");
-                }
-
-                String clientID = tokens[0];
-
-                requestBody.Add("grant_type", "client_credentials");
-                requestBody.Add("resource", "00000003-0000-0ff1-ce00-000000000000/" + DomainSite + "@" + clientID);
-                requestBody.Add("client_id", client_id);
-                requestBody.Add("client_secret", clientSecret);
-
-                parameters.Add("grant_type", "client_credentials");
-                Console.WriteLine(requestBody.ToString());
-                var request = new RestRequest(client_id + "/tokens/OAuth/2/", Method.Get);
-
-
-                //request.AddStringBody(requestBody.ToString(), DataFormat.Json);
-                request.RequestFormat = DataFormat.Json;
-                request.AddBody(requestBody.ToString());
-                request.AddParameter("grant_type", "client_credentials");
-
-                var body = request.Parameters.FirstOrDefault(p => p.Type == ParameterType.RequestBody);
-                Console.WriteLine(body);
-
-                //make request and get response 
-                RestResponse response = restClient.Execute(request);
-                var content = response.Content;
-
-
-                //print result 
-                Console.WriteLine(content);
-                Console.ReadKey(true);
-
-                return "done";
+                tokens = Regex.Split(client_id, "@");
             }
+
+            String clientID = tokens[0];
+
+            requestBody.Add("grant_type", "client_credentials");
+            requestBody.Add("resource", "00000003-0000-0ff1-ce00-000000000000/" + DomainSite + "@" + clientID);
+            requestBody.Add("client_id", client_id);
+            requestBody.Add("client_secret", clientSecret);
+
+            parameters.Add("grant_type", "client_credentials");
+            Console.WriteLine(requestBody.ToString());
+            var request = new RestRequest(clientID + "/tokens/OAuth/2/", Method.Get);
+
+
+            //request.AddStringBody(requestBody.ToString(), DataFormat.Json);
+            request.RequestFormat = DataFormat.Json;
+            var body = new Posts { grant_type = "client_credentials", resource = "00000003-0000-0ff1-ce00-000000000000/" + DomainSite + "@" + clientID, client_id = client_id, client_secret = clientSecret };
+            request.AddJsonBody(body);
+
+            var bodysent = request.Parameters.FirstOrDefault(p => p.Type == ParameterType.RequestBody);
+            Console.WriteLine(bodysent);
+
+            //make request and get response 
+            //RestResponse response = restClient.Execute(request);
+            //var content = response.Content;
+
+            var response = restClient.Execute(request);
+
+            //print result 
+            Console.WriteLine(response.Content.ToString());
+            Console.ReadKey(true);
+
+            return "done";
 
         }
         public String getAccessTokenWithHTTP(String client_id, String DomainSite, String clientSecret)
@@ -81,7 +78,7 @@ namespace Demo_Sharepoint_API.Pages.REST
                 requestBody.Add("client_secret", clientSecret);
 
                 var endpoint = new Uri("https://accounts.accesscontrol.windows.net/" + client_id + "/tokens/OAuth/2/");
-                var newPost = new
+                var newPost = new Posts()
                 {
                     grant_type = "client_credentials",
                     resource = "00000003-0000-0ff1-ce00-000000000000/" + DomainSite + "@" + clientID,
@@ -117,7 +114,7 @@ namespace Demo_Sharepoint_API.Pages.REST
             using (RestClient restClient = new RestClient(url))
             {
                 var headers = new JObject();
-                headers.Add("Accept", "?Accept=application/json;odata=verbose");
+                headers.Add("Accept", "application/json;odata=verbose");
                 headers.Add("content-type", "application/json;odata=verbose");
                 headers.Add("Authorization", "Bearer " + accessToken);
                 var request = new RestRequest();

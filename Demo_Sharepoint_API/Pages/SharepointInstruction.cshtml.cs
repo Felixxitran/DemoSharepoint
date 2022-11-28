@@ -14,8 +14,9 @@ namespace Demo_Sharepoint_API.Pages
             tenantInfo.DomainSite = Request.Form["DomainSite"];
             Debug.WriteLine("get acc tok run");
             ConstructREST restClient = new ConstructREST();
-
-            restClient.getAccessToken(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
+            HTTPRest restHTTPClient = new HTTPRest();
+            //restClient.getAccessToken(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
+            restHTTPClient.getAccessToken(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
             //restClient.getAccessTokenWithHTTP(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
             //return RedirectToPage("Index");
         }

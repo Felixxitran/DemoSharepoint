@@ -1,10 +1,10 @@
-﻿using System.Text.RegularExpressions;
-
+﻿using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 namespace Demo_Sharepoint_API.Pages.REST
 {
     public class HTTPRest
     {
-        public void getAccessToken(String client_id, String DomainSite, String clientSecret)
+        public string getAccessToken(String client_id, String DomainSite, String clientSecret)
         {
 
 
@@ -28,10 +28,15 @@ namespace Demo_Sharepoint_API.Pages.REST
             var httpClient = new HttpClient();
             var response = httpClient.PostAsync(urlAccessToken, content).Result;
             var token = response.Content.ReadAsStringAsync().Result;
-            //var accessToken = (JsonConvert.DeserializeObject<AccessToken>(token)).access_token;
-            Console.WriteLine(token);
-        }
+            string accessToken = (JsonConvert.DeserializeObject<AccessToken>(token)).access_token;
 
+            Console.WriteLine(accessToken);
+            return accessToken;
+        }
+        public void getList(string accessToken)
+        {
+
+        }
     }
 }
 

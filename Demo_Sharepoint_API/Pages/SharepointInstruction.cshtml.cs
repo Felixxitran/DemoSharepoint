@@ -16,9 +16,10 @@ namespace Demo_Sharepoint_API.Pages
             ConstructREST restClient = new ConstructREST();
             HTTPRest restHTTPClient = new HTTPRest();
             //restClient.getAccessToken(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
-            restHTTPClient.getAccessToken(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
+            string accessToken = restHTTPClient.getAccessToken(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
             //restClient.getAccessTokenWithHTTP(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
             //return RedirectToPage("Index");
+            restHTTPClient.createNewFolder(accessToken, tenantInfo.DomainSite, "Beta_Folder");
         }
     }
     public class GetAccessToken

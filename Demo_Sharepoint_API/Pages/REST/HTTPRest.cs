@@ -69,7 +69,7 @@ namespace Demo_Sharepoint_API.Pages.REST
             var response = httpClient.PostAsync(url, content).Result;
             Console.WriteLine(response);
         }
-        public void createNewDocumentLibrary()
+        public void sendFiles()
         {
 
         }

@@ -12,6 +12,7 @@ namespace Demo_Sharepoint_API.Pages
             tenantInfo.clientID = Request.Form["clientID"];
             tenantInfo.clientSecret = Request.Form["clientSecret"];
             tenantInfo.DomainSite = Request.Form["DomainSite"];
+            tenantInfo.FolderName = Request.Form["FolderName"];
             Debug.WriteLine("get acc tok run");
             ConstructREST restClient = new ConstructREST();
             HTTPRest restHTTPClient = new HTTPRest();
@@ -19,7 +20,7 @@ namespace Demo_Sharepoint_API.Pages
             string accessToken = restHTTPClient.getAccessToken(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
             //restClient.getAccessTokenWithHTTP(tenantInfo.clientID, tenantInfo.DomainSite, tenantInfo.clientSecret);
             //return RedirectToPage("Index");
-            restHTTPClient.createNewFolder(accessToken, tenantInfo.DomainSite, "Beta_Folder");
+            restHTTPClient.createNewFolder(accessToken, tenantInfo.DomainSite, tenantInfo.FolderName);
         }
     }
     public class GetAccessToken
@@ -27,5 +28,6 @@ namespace Demo_Sharepoint_API.Pages
         public string clientID = "";
         public string clientSecret = " ";
         public string DomainSite = "";
+        public string FolderName = "";
     }
 }

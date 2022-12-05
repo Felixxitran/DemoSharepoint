@@ -72,3 +72,8 @@ D:\code\DemoSharepoint\Demo_Sharepoint_API\bin\Debug\net6.0\Microsoft.IdentityMo
 D:\code\DemoSharepoint\Demo_Sharepoint_API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 D:\code\DemoSharepoint\Demo_Sharepoint_API\bin\Debug\net6.0\System.Memory.Data.dll
 D:\code\DemoSharepoint\Demo_Sharepoint_API\bin\Debug\net6.0\System.Text.Json.dll
+D:\code\DemoSharepoint\Demo_Sharepoint_API\obj\Debug\net6.0\staticwebassets\msbuild.Demo_Sharepoint_API.Microsoft.AspNetCore.StaticWebAssets.props
+D:\code\DemoSharepoint\Demo_Sharepoint_API\obj\Debug\net6.0\staticwebassets\msbuild.build.Demo_Sharepoint_API.props
+D:\code\DemoSharepoint\Demo_Sharepoint_API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Demo_Sharepoint_API.props
+D:\code\DemoSharepoint\Demo_Sharepoint_API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Demo_Sharepoint_API.props
+D:\code\DemoSharepoint\Demo_Sharepoint_API\obj\Debug\net6.0\staticwebassets.pack.json

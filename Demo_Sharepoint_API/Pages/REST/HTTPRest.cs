@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 namespace Demo_Sharepoint_API.Pages.REST
@@ -68,11 +69,9 @@ namespace Demo_Sharepoint_API.Pages.REST
             Console.WriteLine(url);
             var response = httpClient.PostAsync(url, content).Result;
             Console.WriteLine(response);
+            
         }
-        public void sendFiles()
-        {
 
-        }
     }
 }
 

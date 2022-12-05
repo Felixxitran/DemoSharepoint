@@ -2,13 +2,72 @@
 @model Demo_Sharepoint_API.Pages.SharepointInstructionModel
 @{
 }
+<h1>This is Sharepoint Instruction on how to make SharePoint Integration</h1>
+<h1 style="color:blueviolet;">STEP 1: Create and get Authorization for our App by move to the below link in your browser</h1>
+<h1 style="color: red;">PLEASE ENSURE THAT YOUR ACCOUNT IS THE ADMIN ACCOUNT</h1>
+<h3>https://"Domain Site Name"/sites/"Site Name"/_layouts/15/appregnew.aspx</h3>
+<ul>
+    <li>Domain Site Name the Domain Site name of your company for example 
+        <img src="/css/img/domainSite.png"/>
+    </li>
+    <li>
+        Site Name is the name of the site 
+        <img src="/css/img/siteName.png" />
+    </li>
+</ul>
+<p>You will be prompt to the website like below</p>
+<img src="~/css/img/appregnew.png"/>
+<p>please generate client ID and client Secret , also type in the Title and Domain of your choice</p>
+<p>For Example : Title is BETA_API and domain name is Seatech</p>
+<p>Redirect URL is the URL to your site , for example : https://seatechsystemsintegrationin.sharepoint.com/sites/Beta_ASP.NET</p>
+<p>After that click Create and you will be prompt to the website like below</p>
+<img src="~/css/img/clientInfo.png"/>
+<h2>Please copy paste </h2> <h1 style="color: red;">ONLY</h1> <h2>your client Secret to the form at the end of this page</h2>
+<h1>And please save your clientID to anywhere else for your next step, save your client Secret also in case some thing wrong happens</h1>
 
-<h1>This is Sharepoint Instruction on how to connect</h1>
 
+<h1 style="color:blueviolet;">Step 2:Register and grant permission for our App</h1> 
+<h1>Please go to the link below</h1>
+<h3>https://"Domain Site Name"/sites/"Site Name"/_layouts/15/appivn.aspx</h3>
+<p>You will be prompt to the website like below</p>
+<img src="/css/img/appivn.png"/>
+<p>Please copy paste the clientID you saved in step 1 to the App Id box and then click Look Up</p>
+<p>You will have something like below</p>
+<img src="~/css/img/appivn2.png"/>
+<p>After that please copy all the text in the google doc file you get from the link below to Permission Request XML</p>
+<p style="padding: 10px; border: 2px solid red;">
+    <a href="https://docs.google.com/document/d/e/2PACX-1vSjbBBs-dSXf9UbN6Gy3l3ACE83BwA19gLfLys6yUZT3F2Qk2Iu3A-zyUbCy5R3eAYXGhk5W4DrxCWj/pub">https://docs.google.com/document/d/e/2PACX-1vSjbBBs-dSXf9UbN6Gy3l3ACE83BwA19gLfLys6yUZT3F2Qk2Iu3A-zyUbCy5R3eAYXGhk5W4DrxCWj/pub</a>
+</p>
+<p>Then click create and Trust it</p>
 
-
-<h1>Please input the per instruction above</h1> 
-<h1></h1>
+<h1 style="color:blueviolet;">
+    STEP 3: Please go to the link below</h>
+<h3>https://"Domain Site Name"/sites/"Site Name"/_layouts/15/appprincipals.aspx</h3>
+<p>You will be prompt to the website like below</p>
+<img src="~/css/img/clientInfotennantID.png"/>
+<p>please copy paste your App Identifier the part that is bold below to the tenant ID box in the form at the end</p>
+<img src="~/css/img/tenantId.png"/>
+<h2>the Site Domain box is the same as the same domain Site Name in step 1 </h2>
+<h2>The Folder Name is the name of the Library document of your site that you want to add the cargoList in</h2>
+<img src="~/css/img/foldername.png"/>
+<h1>The final form should look like below</h1>
+<img src="~/css/img/samplesubmit.png"/>
+<h1 style="color:blueviolet;">STEP 4: Enable Custom App Authentication(Since Sharepoint generally does not allow for custom app to have authentication by default , we have to set things up)</h1>
+<h2>Please open the terminal in your PC/LAPTOP and please run as administrator</h2>
+<ul>
+    <li>Firstly, please install the SharePoint Module by using the following command : <h1 style="color:red;">Install-Module -Name Microsoft.Online.SharePoint.PowerShell</h1></li>
+    <li>Setting up your credential : <h1 style="color:red;">$adminUPN = "your sharepoint email"</h1></li>
+    <li>Also your organization name : <h1 style="color:red;">$orgName = "same as your domain name but without the .sharepoint.com"</h1></li>
+    <li>Then set up your user Credential: <h1 style="color:red;">$userCredential=Get-Credential -UserName $adminUPN -Message "the password to your account"</h1>
+        <img src="~/css/img/terminalsharepoint.png"/>
+    </li>
+    <li>Connect the SPO SERVICE: <h1 style="color:red;">Connect-SPOService -Url https://$orgName-admin.sharepoint.com -Credential $userCredential</h1></li>
+    <li>Disable the Enable the custom authorization :<h1 style="color:red;">set-spotenant -DisableCustomAppAuthentication $false</h1>
+        It should be looking like this at the end
+        <img src="~/css/img/terminal2.png"
+    </li>
+</ul>
+<h1>Then you are done , please submit the form </h1>
 
 <form method="POST" >
     <div class="row mb-3">
@@ -32,7 +91,7 @@
     </div>
     <div class="row mb-3">
 
-        <label class="col-sm-3 col-form-label">Site Domain</label>
+        <label class="col-sm-3 col-form-label">Folder Name</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" name="FolderName" placeholder="Enter Folder Name..." />
         </div>

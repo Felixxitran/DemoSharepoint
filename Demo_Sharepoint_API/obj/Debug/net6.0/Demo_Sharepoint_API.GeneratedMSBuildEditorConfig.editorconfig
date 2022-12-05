@@ -5,6 +5,7 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Demo_Sharepoint_API
 build_property.RootNamespace = Demo_Sharepoint_API
@@ -37,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/code/DemoSharepoint/Demo_Sharepoint_API/Pages/SharepointInstruction.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVwb2ludEluc3RydWN0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/code/DemoSharepoint/Demo_Sharepoint_API/Pages/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/code/DemoSharepoint/Demo_Sharepoint_API/Pages/_ViewImports.cshtml]

@@ -56,13 +56,13 @@
 <h2>Please open the terminal in your PC/LAPTOP and please run as administrator</h2>
 <ul>
     <li>Firstly, please install the SharePoint Module by using the following command : <h1 style="color:red;">Install-Module -Name Microsoft.Online.SharePoint.PowerShell</h1></li>
-    <li>Setting up your credential : <h1 style="color:red;">$adminUPN = "your sharepoint email"</h1></li>
+    <li>Setting up your Sharepoint email : <h1 style="color:red;">$adminUPN = "your sharepoint email"</h1></li>
     <li>Also your organization name : <h1 style="color:red;">$orgName = "same as your domain name but without the .sharepoint.com"</h1></li>
     <li>Then set up your user Credential: <h1 style="color:red;">$userCredential=Get-Credential -UserName $adminUPN -Message "the password to your account"</h1>
         <img src="~/css/img/terminalsharepoint.png"/>
     </li>
     <li>Connect the SPO SERVICE: <h1 style="color:red;">Connect-SPOService -Url https://$orgName-admin.sharepoint.com -Credential $userCredential</h1></li>
-    <li>Disable the Enable the custom authorization :<h1 style="color:red;">set-spotenant -DisableCustomAppAuthentication $false</h1>
+    <li>Enable the custom authorization :<h1 style="color:red;">set-spotenant -DisableCustomAppAuthentication $false</h1>
         It should be looking like this at the end
         <img src="~/css/img/terminal2.png"/>
     </li>
